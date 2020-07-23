@@ -1,0 +1,29 @@
+<!-- 
+game.html
+
+This code displays what you see when you first load https://t1-snakesquad-completed.glitch.me/game.html, which 
+is mostly a HTML5 canvas (that the game will appear on). It relies on game.css for styling and game.js for interactivity. 
+
+You don't need to make any changes here. 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/game.css">
+</head>
+<body>
+  <div id="gameOver" style="display:none">
+    <p>Game Over</p>
+    <p>High Score: 0</p>
+    <button>Start Over</button>
+  </div>
+  <div id="scoreboard">Score: 0</div>
+  <canvas width="600" height="600" id="game"></canvas>
+  <div style="display:none;"> <!-- These are hidden elements that we will display in game.js --> 
+    <img id="avatar" src="https://mdn.mozillademos.org/files/5397/rhino.jpg" width="300" height="227">
+  </div>
+  <audio><source src="https://cdn.glitch.com/a561b0c5-265b-4366-8b31-56839e5d2174%2FWalking-sound-effect-rocks.mp3?v=1595477663402" type="audio/mpeg"></audio>
+  <audio><source src="https://cdn.glitch.com/a561b0c5-265b-4366-8b31-56839e5d2174%2FFail-sound-effect.mp3?v=1595481026306" type="audio/mpeg"></audio>
+  <script src="/game.js" defer></script>
+</body>
+</html> 
