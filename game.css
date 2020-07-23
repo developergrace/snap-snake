@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: black;
+}
+body {
+  font-family: 'Playfair Display', serif;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  background-image: url(https://sothebys-com.brightspotcdn.com/dims4/default/5082cdc/2147483647/strip/true/crop/3500x1980+0+1508/resize/1156x654!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fdotcom%2F00%2F05%2F5b90c0bd4c3fa9a8842246552440%2Fimps-eve-highlights-6.jpg);
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+}
+
+#gameOver {
+  position: absolute;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 2em;
+}
+
+#gameOver > * {
+  margin: 1%;
+  padding: 10px;
+}
+
+#gameOver p:first-child {
+  font-size: 2.5em;
+}
+
+#gameOver button {
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  padding: 10px 50px;
+  margin-bottom: 50px;
+  background-color: #ff6781;
+  cursor: pointer;
+}
+
+#gameOver button:hover {
+  transition: all .3s ease;
+  background-color: #67cdff;
+}
+
+#scoreboard {
+  font-size: 2.5em;
+  margin: .5% 1% 2%;
+}
+
+canvas {
+  background-color: white;
+  background-color: rgba(255,255,255,.6);
+  padding: 5px;
+  border-radius: 5px;
+}
+
