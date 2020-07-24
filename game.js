@@ -31,6 +31,7 @@ failSound.volume = .3;
 var gameOver = document.getElementById("gameOver");
 var startOver = gameOver.querySelector("button");
 
+var isGameOver = false;
 
 /***MAIN FUNCTIONS***/
 
@@ -70,6 +71,9 @@ document.addEventListener('keydown', function(e) {
 
 /*snakeSquadLoop: This is the main code that is run each time the game loops*/
 function snakeSquadLoop() {
+  if(isGameOver) {
+    return;
+  }
   requestAnimationFrame(snakeSquadLoop);
   // if count < 16, then keep looping. Don't animate until you get to the 16th frame. This controls the speed of the animation.
   if (count < 16) {
@@ -90,7 +94,7 @@ function snakeSquadLoop() {
   }
   
   if(checkCrashItself()) {
-    endGame();
+    return endGame();
   }
 }
 
@@ -177,7 +181,7 @@ function snakeTouchesApple(){
   if(snake.cells[0].x === apple.x && snake.cells[0].y === apple.y) {
     score++;
     document.getElementById('scoreboard').textContent = "Score: " + score;
-    playSound(crunchSound);
+    playSound(crunchSound,1);
     return true; //lengthenSnakeByOne & randomlyGenerateApple already called in snakeSquadLoop
   }
 }
@@ -218,11 +222,13 @@ function checkCrashItself(){
 /*endGame
 displays an alert and reloads the page
 */
-
 function endGame(){
-  playSound(failSound);
+  isGameOver = true;
+  playSound(failSound,3);
+  // context.clearRect(0, 0, canvas.width, canvas.height); //clears character from screen
   gameOver.style.display = "block";
   gameOver.querySelectorAll("p")[1].textContent = "High Score: " + score;
+  return;
 }
 
 startOver.addEventListener("click", () => {
@@ -239,14 +245,15 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function playSound(sound) {
+function playSound(sound,time) {
   sound.play();
   let int = setInterval(function() {
-    if(sound.currentTime > 1) {
+    if(sound.currentTime > time) {
       sound.pause();
       clearInterval(int);
       sound.currentTime = 0;
     }
   }, 1);
+ 
   //i think the failSound is playing for every part of the snake body the head runs into, need to figure out how to make the snake stop moving when endGame triggers
 }

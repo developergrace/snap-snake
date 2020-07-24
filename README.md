@@ -1,7 +1,7 @@
 Snake Squad
 =================
 
-A recreation of Snapchat's Snake Squad game using HTMl, CSS, and JavaScript. Created by Grace Park for Snap Inc's 2020 Engineering Academy. 
+A recreation of Snapchat's Snake Squad game using HTML, CSS, and JavaScript. Created by Grace Park for Snap Inc's 2020 Engineering Academy. 
 
 Click `Show` in the header to see the app live. Updates to the code will instantly deploy and update live.
 
